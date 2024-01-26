@@ -1,0 +1,345 @@
+:root {
+    /* default theme will be blue */
+    --fyard-theme-core: var(--fyard-blue-core);
+    --fyard-theme-100: var(--fyard-blue-100);
+    --fyard-theme-150: var(--fyard-blue-150);
+    --fyard-theme-200: var(--fyard-blue-200);
+    --fyard-theme-300: var(--fyard-blue-300);
+    --fyard-theme-400: var(--fyard-blue-400);
+    --fyard-theme-500: var(--fyard-blue-500);
+    --fyard-theme-600: var(--fyard-blue-600);
+    --fyard-theme-700: var(--fyard-blue-700);
+    --fyard-theme-800: var(--fyard-blue-800);
+    --fyard-theme-850: var(--fyard-blue-850);
+    --fyard-theme-900: var(--fyard-blue-900);
+
+    /* #region blue */
+    --fyard-blue-core: #0d6efd;
+    --fyard-blue-100: hsl(216, 50%, 91%);
+    --fyard-blue-150: hsl(216, 50%, 86%);
+    --fyard-blue-200: hsl(216, 50%, 81%);
+    --fyard-blue-300: hsl(216, 50%, 71%);
+    --fyard-blue-400: hsl(216, 50%, 61%);
+    --fyard-blue-500: hsl(216, 50%, 51%);
+    --fyard-blue-600: hsl(216, 50%, 41%);
+    --fyard-blue-700: hsl(216, 50%, 31%);
+    --fyard-blue-800: hsl(216, 50%, 21%);
+    --fyard-blue-850: hsl(216, 50%, 16%);
+    --fyard-blue-900: hsl(216, 50%, 11%);
+    /* #endregion blue */
+
+    /* #region indigo */
+    --fyard-indigo-core: #6610f2;
+    --fyard-indigo-100: hsl(263, 88%, 90%);
+    --fyard-indigo-150: hsl(263, 88%, 85%);
+    --fyard-indigo-200: hsl(263, 88%, 80%);
+    --fyard-indigo-300: hsl(263, 88%, 70%);
+    --fyard-indigo-400: hsl(263, 88%, 60%);
+    --fyard-indigo-500: hsl(263, 88%, 50%);
+    --fyard-indigo-600: hsl(263, 88%, 40%);
+    --fyard-indigo-700: hsl(263, 88%, 30%);
+    --fyard-indigo-800: hsl(263, 88%, 20%);
+    --fyard-indigo-850: hsl(263, 88%, 15%);
+    --fyard-indigo-900: hsl(263, 88%, 10%);
+    /* #endregion indigo */
+
+    /* #region purple */
+    --fyard-purple-core: #6f42c1;
+    --fyard-purple-100: hsl(261, 52%, 90%);
+    --fyard-purple-150: hsl(261, 52%, 85%);
+    --fyard-purple-200: hsl(261, 52%, 80%);
+    --fyard-purple-300: hsl(261, 52%, 70%);
+    --fyard-purple-400: hsl(261, 52%, 60%);
+    --fyard-purple-500: hsl(261, 52%, 50%);
+    --fyard-purple-600: hsl(261, 52%, 40%);
+    --fyard-purple-700: hsl(261, 52%, 30%);
+    --fyard-purple-800: hsl(261, 52%, 20%);
+    --fyard-purple-850: hsl(261, 52%, 15%);
+    --fyard-purple-900: hsl(261, 52%, 10%);
+    /* #endregion purple */
+
+    /* #region pink */
+    --fyard-pink-core: #d63384;
+    --fyard-pink-100: hsl(331, 47%, 90%);
+    --fyard-pink-150: hsl(331, 47%, 85%);
+    --fyard-pink-200: hsl(331, 47%, 80%);
+    --fyard-pink-300: hsl(331, 47%, 70%);
+    --fyard-pink-400: hsl(331, 47%, 60%);
+    --fyard-pink-500: hsl(331, 47%, 50%);
+    --fyard-pink-600: hsl(331, 47%, 40%);
+    --fyard-pink-700: hsl(331, 47%, 30%);
+    --fyard-pink-800: hsl(331, 47%, 20%);
+    --fyard-pink-850: hsl(331, 47%, 15%);
+    --fyard-pink-900: hsl(331, 47%, 10%);
+    /* #endregion pink */
+
+    /* #region red */
+    --fyard-red-core: #dc3545;
+    --fyard-red-100: hsl(355, 70%, 91%);
+    --fyard-red-150: hsl(355, 70%, 86%);
+    --fyard-red-200: hsl(355, 70%, 81%);
+    --fyard-red-300: hsl(355, 70%, 71%);
+    --fyard-red-400: hsl(355, 70%, 61%);
+    --fyard-red-500: hsl(355, 70%, 51%);
+    --fyard-red-600: hsl(355, 70%, 41%);
+    --fyard-red-700: hsl(355, 70%, 31%);
+    --fyard-red-800: hsl(355, 70%, 21%);
+    --fyard-red-850: hsl(355, 70%, 16%);
+    --fyard-red-900: hsl(355, 70%, 11%);
+    /* #endregion red */
+
+    /* #region orange */
+    --fyard-orange-core: #fd7e14;
+    --fyard-orange-100: hsl(19, 50%, 91%);
+    --fyard-orange-150: hsl(19, 50%, 86%);
+    --fyard-orange-200: hsl(19, 50%, 81%);
+    --fyard-orange-300: hsl(19, 50%, 71%);
+    --fyard-orange-400: hsl(19, 50%, 61%);
+    --fyard-orange-500: hsl(19, 50%, 51%);
+    --fyard-orange-600: hsl(19, 50%, 41%);
+    --fyard-orange-700: hsl(19, 50%, 31%);
+    --fyard-orange-800: hsl(19, 50%, 21%);
+    --fyard-orange-850: hsl(19, 50%, 16%);
+    --fyard-orange-900: hsl(19, 50%, 11%);
+    /* #endregion orange */
+
+    /* #region yellow */
+    --fyard-yellow-core: #ffc107;
+    --fyard-yellow-100: hsl(46, 70%, 90%);
+    --fyard-yellow-150: hsl(46, 70%, 85%);
+    --fyard-yellow-200: hsl(46, 70%, 80%);
+    --fyard-yellow-300: hsl(46, 70%, 70%);
+    --fyard-yellow-400: hsl(46, 70%, 60%);
+    --fyard-yellow-500: hsl(46, 70%, 50%);
+    --fyard-yellow-600: hsl(46, 70%, 40%);
+    --fyard-yellow-700: hsl(46, 70%, 30%);
+    --fyard-yellow-800: hsl(46, 70%, 20%);
+    --fyard-yellow-850: hsl(46, 70%, 15%);
+    --fyard-yellow-900: hsl(46, 70%, 10%);
+    /* #endregion yellow */
+
+    /* #region green */
+    --fyard-green-core: #198754;
+    --fyard-green-100: hsl(152, 38%, 95%);
+    --fyard-green-150: hsl(152, 38%, 90%);
+    --fyard-green-200: hsl(152, 38%, 85%);
+    --fyard-green-300: hsl(152, 38%, 75%);
+    --fyard-green-400: hsl(152, 38%, 65%);
+    --fyard-green-500: hsl(152, 38%, 55%);
+    --fyard-green-600: hsl(152, 38%, 45%);
+    --fyard-green-700: hsl(152, 38%, 35%);
+    --fyard-green-800: hsl(152, 38%, 25%);
+    --fyard-green-850: hsl(152, 38%, 20%);
+    --fyard-green-900: hsl(152, 38%, 15%);
+    /* #endregion green */
+
+    /* #region teal */
+    --fyard-teal-core: #20c997;
+    --fyard-teal-100: hsl(162, 60%, 89%);
+    --fyard-teal-150: hsl(162, 60%, 84%);
+    --fyard-teal-200: hsl(162, 60%, 79%);
+    --fyard-teal-300: hsl(162, 60%, 69%);
+    --fyard-teal-400: hsl(162, 60%, 59%);
+    --fyard-teal-500: hsl(162, 60%, 49%);
+    --fyard-teal-600: hsl(162, 60%, 39%);
+    --fyard-teal-700: hsl(162, 60%, 29%);
+    --fyard-teal-800: hsl(162, 60%, 19%);
+    --fyard-teal-850: hsl(162, 60%, 14%);
+    --fyard-teal-900: hsl(162, 60%, 9%);
+    /* #endregion teal */
+
+    /* #region cyan */
+    --fyard-cyan-core: #0dcaf0;
+    --fyard-cyan-100: hsl(191, 60%, 90%);
+    --fyard-cyan-150: hsl(191, 60%, 85%);
+    --fyard-cyan-200: hsl(191, 60%, 80%);
+    --fyard-cyan-300: hsl(191, 60%, 70%);
+    --fyard-cyan-400: hsl(191, 60%, 60%);
+    --fyard-cyan-500: hsl(191, 60%, 50%);
+    --fyard-cyan-600: hsl(191, 60%, 40%);
+    --fyard-cyan-700: hsl(191, 60%, 30%);
+    --fyard-cyan-800: hsl(191, 60%, 20%);
+    --fyard-cyan-850: hsl(191, 60%, 15%);
+    --fyard-cyan-900: hsl(191, 60%, 10%);
+    /* #endregion cyan */
+
+    /* #region gray */
+    --fyard-gray-core: #adb5bd;
+    --fyard-gray-100: hsl(210, 17%, 98%);
+    --fyard-gray-150: hsl(210, 17%, 93%);
+    --fyard-gray-200: hsl(210, 17%, 88%);
+    --fyard-gray-300: hsl(210, 17%, 78%);
+    --fyard-gray-400: hsl(210, 17%, 68%);
+    --fyard-gray-500: hsl(210, 17%, 58%);
+    --fyard-gray-600: hsl(210, 17%, 48%);
+    --fyard-gray-700: hsl(210, 17%, 38%);
+    --fyard-gray-800: hsl(210, 17%, 28%);
+    --fyard-gray-850: hsl(210, 17%, 23%);
+    --fyard-gray-900: hsl(210, 17%, 18%);
+    /* #endregion gray */
+}
+
+[data-fyard-theme="blue"] {
+    --fyard-theme-core: var(--fyard-blue-core);
+    --fyard-theme-100: var(--fyard-blue-100);
+    --fyard-theme-150: var(--fyard-blue-150);
+    --fyard-theme-200: var(--fyard-blue-200);
+    --fyard-theme-300: var(--fyard-blue-300);
+    --fyard-theme-400: var(--fyard-blue-400);
+    --fyard-theme-500: var(--fyard-blue-500);
+    --fyard-theme-600: var(--fyard-blue-600);
+    --fyard-theme-700: var(--fyard-blue-700);
+    --fyard-theme-800: var(--fyard-blue-800);
+    --fyard-theme-850: var(--fyard-blue-850);
+    --fyard-theme-900: var(--fyard-blue-900);
+}
+
+[data-fyard-theme="indigo"] {
+    --fyard-theme-core: var(--fyard-indigo-core);
+    --fyard-theme-100: var(--fyard-indigo-100);
+    --fyard-theme-150: var(--fyard-indigo-150);
+    --fyard-theme-200: var(--fyard-indigo-200);
+    --fyard-theme-300: var(--fyard-indigo-300);
+    --fyard-theme-400: var(--fyard-indigo-400);
+    --fyard-theme-500: var(--fyard-indigo-500);
+    --fyard-theme-600: var(--fyard-indigo-600);
+    --fyard-theme-700: var(--fyard-indigo-700);
+    --fyard-theme-800: var(--fyard-indigo-800);
+    --fyard-theme-850: var(--fyard-indigo-850);
+    --fyard-theme-900: var(--fyard-indigo-900);
+}
+
+[data-fyard-theme="purple"] {
+    --fyard-theme-core: var(--fyard-purple-core);
+    --fyard-theme-100: var(--fyard-purple-100);
+    --fyard-theme-150: var(--fyard-purple-150);
+    --fyard-theme-200: var(--fyard-purple-200);
+    --fyard-theme-300: var(--fyard-purple-300);
+    --fyard-theme-400: var(--fyard-purple-400);
+    --fyard-theme-500: var(--fyard-purple-500);
+    --fyard-theme-600: var(--fyard-purple-600);
+    --fyard-theme-700: var(--fyard-purple-700);
+    --fyard-theme-800: var(--fyard-purple-800);
+    --fyard-theme-850: var(--fyard-purple-850);
+    --fyard-theme-900: var(--fyard-purple-900);
+}
+
+[data-fyard-theme="pink"] {
+    --fyard-theme-core: var(--fyard-pink-core);
+    --fyard-theme-100: var(--fyard-pink-100);
+    --fyard-theme-150: var(--fyard-pink-150);
+    --fyard-theme-200: var(--fyard-pink-200);
+    --fyard-theme-300: var(--fyard-pink-300);
+    --fyard-theme-400: var(--fyard-pink-400);
+    --fyard-theme-500: var(--fyard-pink-500);
+    --fyard-theme-600: var(--fyard-pink-600);
+    --fyard-theme-700: var(--fyard-pink-700);
+    --fyard-theme-800: var(--fyard-pink-800);
+    --fyard-theme-850: var(--fyard-pink-850);
+    --fyard-theme-900: var(--fyard-pink-900);
+}
+
+[data-fyard-theme="red"] {
+    --fyard-theme-core: var(--fyard-red-core);
+    --fyard-theme-100: var(--fyard-red-100);
+    --fyard-theme-150: var(--fyard-red-150);
+    --fyard-theme-200: var(--fyard-red-200);
+    --fyard-theme-300: var(--fyard-red-300);
+    --fyard-theme-400: var(--fyard-red-400);
+    --fyard-theme-500: var(--fyard-red-500);
+    --fyard-theme-600: var(--fyard-red-600);
+    --fyard-theme-700: var(--fyard-red-700);
+    --fyard-theme-800: var(--fyard-red-800);
+    --fyard-theme-850: var(--fyard-red-850);
+    --fyard-theme-900: var(--fyard-red-900);
+}
+
+[data-fyard-theme="orange"] {
+    --fyard-theme-core: var(--fyard-orange-core);
+    --fyard-theme-100: var(--fyard-orange-100);
+    --fyard-theme-150: var(--fyard-orange-150);
+    --fyard-theme-200: var(--fyard-orange-200);
+    --fyard-theme-300: var(--fyard-orange-300);
+    --fyard-theme-400: var(--fyard-orange-400);
+    --fyard-theme-500: var(--fyard-orange-500);
+    --fyard-theme-600: var(--fyard-orange-600);
+    --fyard-theme-700: var(--fyard-orange-700);
+    --fyard-theme-800: var(--fyard-orange-800);
+    --fyard-theme-850: var(--fyard-orange-850);
+    --fyard-theme-900: var(--fyard-orange-900);
+}
+
+[data-fyard-theme="yellow"] {
+    --fyard-theme-core: var(--fyard-yellow-core);
+    --fyard-theme-100: var(--fyard-yellow-100);
+    --fyard-theme-150: var(--fyard-yellow-150);
+    --fyard-theme-200: var(--fyard-yellow-200);
+    --fyard-theme-300: var(--fyard-yellow-300);
+    --fyard-theme-400: var(--fyard-yellow-400);
+    --fyard-theme-500: var(--fyard-yellow-500);
+    --fyard-theme-600: var(--fyard-yellow-600);
+    --fyard-theme-700: var(--fyard-yellow-700);
+    --fyard-theme-800: var(--fyard-yellow-800);
+    --fyard-theme-850: var(--fyard-yellow-850);
+    --fyard-theme-900: var(--fyard-yellow-900);
+}
+
+[data-fyard-theme="green"] {
+    --fyard-theme-core: #198754;
+    --fyard-theme-100: hsl(152, 38%, 95%);
+    --fyard-theme-150: hsl(152, 38%, 90%);
+    --fyard-theme-200: hsl(152, 38%, 85%);
+    --fyard-theme-300: hsl(152, 38%, 75%);
+    --fyard-theme-400: hsl(152, 38%, 65%);
+    --fyard-theme-500: hsl(152, 38%, 55%);
+    --fyard-theme-600: hsl(152, 38%, 45%);
+    --fyard-theme-700: hsl(152, 38%, 35%);
+    --fyard-theme-800: hsl(152, 38%, 25%);
+    --fyard-theme-850: hsl(152, 38%, 20%);
+    --fyard-theme-900: hsl(152, 38%, 15%);
+}
+
+[data-fyard-theme="teal"] {
+    --fyard-theme-core: var(--fyard-teal-core);
+    --fyard-theme-100: var(--fyard-teal-100);
+    --fyard-theme-150: var(--fyard-teal-150);
+    --fyard-theme-200: var(--fyard-teal-200);
+    --fyard-theme-300: var(--fyard-teal-300);
+    --fyard-theme-400: var(--fyard-teal-400);
+    --fyard-theme-500: var(--fyard-teal-500);
+    --fyard-theme-600: var(--fyard-teal-600);
+    --fyard-theme-700: var(--fyard-teal-700);
+    --fyard-theme-800: var(--fyard-teal-800);
+    --fyard-theme-850: var(--fyard-teal-850);
+    --fyard-theme-900: var(--fyard-teal-900);
+}
+
+[data-fyard-theme="cyan"] {
+    --fyard-theme-core: var(--fyard-cyan-core);
+    --fyard-theme-100: var(--fyard-cyan-100);
+    --fyard-theme-150: var(--fyard-cyan-150);
+    --fyard-theme-200: var(--fyard-cyan-200);
+    --fyard-theme-300: var(--fyard-cyan-300);
+    --fyard-theme-400: var(--fyard-cyan-400);
+    --fyard-theme-500: var(--fyard-cyan-500);
+    --fyard-theme-600: var(--fyard-cyan-600);
+    --fyard-theme-700: var(--fyard-cyan-700);
+    --fyard-theme-800: var(--fyard-cyan-800);
+    --fyard-theme-850: var(--fyard-cyan-850);
+    --fyard-theme-900: var(--fyard-cyan-900);
+}
+
+[data-fyard-theme="gray"] {
+    --fyard-theme-core: var(--fyard-gray-core);
+    --fyard-theme-100: var(--fyard-gray-100);
+    --fyard-theme-150: var(--fyard-gray-150);
+    --fyard-theme-200: var(--fyard-gray-200);
+    --fyard-theme-300: var(--fyard-gray-300);
+    --fyard-theme-400: var(--fyard-gray-400);
+    --fyard-theme-500: var(--fyard-gray-500);
+    --fyard-theme-600: var(--fyard-gray-600);
+    --fyard-theme-700: var(--fyard-gray-700);
+    --fyard-theme-800: var(--fyard-gray-800);
+    --fyard-theme-850: var(--fyard-gray-850);
+    --fyard-theme-900: var(--fyard-gray-900);
+}

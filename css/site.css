@@ -1,0 +1,76 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+/*  */
+
+nav, footer {
+    background-color: var(--fyard-theme-900);
+    color: var(--fyard-theme-100);
+}
+
+footer .bi {
+    color: var(--fyard-theme-200);
+    font-size: 1.4rem;
+    padding-left: .5rem;
+    transition: color 0.25s;
+}
+
+footer .bi:hover {
+    color: var(--fyard-theme-core);
+}
+
+.nav-link:hover {
+    color: var(--fyard-theme-300);
+}
+
+/* #region Custom Bootstrap */
+.btn-primary {
+	--bs-btn-bg: var(--fyard-theme-600);
+	--bs-btn-border-color: var(--fyard-theme-600);
+	--bs-btn-hover-bg: var(--fyard-theme-700);
+	--bs-btn-hover-border-color: var(--fyard-theme-700);
+	--bs-btn-active-bg: var(--fyard-theme-800);
+	--bs-btn-active-border-color: var(--fyard-theme-800);
+}
+
+.btn-outline-primary {
+	--bs-btn-color: var(--fyard-theme-600);
+	--bs-btn-border-color: var(--fyard-theme-600);
+	--bs-btn-hover-bg: var(--fyard-theme-700);
+	--bs-btn-hover-border-color: var(--fyard-theme-700);
+	--bs-btn-active-bg: var(--fyard-theme-800);
+	--bs-btn-active-border-color: var(--fyard-theme-800);
+}
+
+/* #endregion Custom Bootstrap */
+
+.devicons {
+    font-size: 3.5rem;
+}
+
+.checklist {
+    list-style: none;
+}
+
+
+.checklist .bi {
+    color: var(--fyard-theme-core);
+}
+
+.app-logo {
+    max-width: 450px;
+}
