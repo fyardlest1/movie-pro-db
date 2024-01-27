@@ -84,9 +84,6 @@ function showMovieDetails(movie) {
 		currency: 'USD',
 	})
 
-	// format date
-	let dateFormatter = new Intl.DateTimeFormat('en')
-
 	// get the element where want to put the title, description, image
 	let movieTitle = document.querySelector('.movieTitle')
 	movieTitle.textContent = movie.title
@@ -121,6 +118,13 @@ function showMovieDetails(movie) {
 	// release-date
 	let releaseDate = document.querySelector('.release-date') 
 	releaseDate.textContent = convertDate(movie.release_date)
+
+	let movieGenres = document.querySelector('.movie-genres')
+	
+	for (let i = 0; i < movie.genres.length; i++) {
+		movieGenres.textContent = movie.genres.name
+		return movieGenres
+	}
 }
 
 // convert the date format
@@ -129,7 +133,7 @@ function convertDate(inputDate) {
 
 	// Define options for formatting
 	const options = {
-		weekday: 'long',
+		weekday: 'short',
 		month: 'short',
 		day: 'numeric',
 		year: 'numeric',
