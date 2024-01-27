@@ -116,15 +116,36 @@ function showMovieDetails(movie) {
 	}
 
 	// release-date
-	let releaseDate = document.querySelector('.release-date') 
+	let releaseDate = document.querySelector('.release-date')
 	releaseDate.textContent = convertDate(movie.release_date)
 
+	// Accessing attributes inside the 'genres' attribute
+	const nameAttributes = movie.genres.map((item) => item.name)
+	const genresName = nameAttributes.join(', ')
 	let movieGenres = document.querySelector('.movie-genres')
-	
-	for (let i = 0; i < movie.genres.length; i++) {
-		movieGenres.textContent = movie.genres.name
-		return movieGenres
-	}
+	movieGenres.textContent = genresName
+
+	// getting the img with the class productionCompanies
+	let companiesLogo = document.querySelector('.productionCompanies')
+	companiesLogo.innerHTML = ''
+	// Accessing the production_companies
+	let productionCompanies = movie.production_companies.map(
+		(item) => item.logo_path
+	)
+
+	// getting each logo and create a new image
+	productionCompanies.forEach((logo) => {
+		// check if the logo exist
+		if (logo) {
+			// create a new image element
+			let newImage = document.createElement('img')
+			newImage.setAttribute('src', `https://image.tmdb.org/t/p/w500${logo}`)
+			newImage.setAttribute('class', 'w-25 pe-2')
+			newImage.setAttribute('alt', 'Company logo')
+			// add the new image to the screen
+			companiesLogo.appendChild(newImage)
+		}
+	})
 }
 
 // convert the date format
