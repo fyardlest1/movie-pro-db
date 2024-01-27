@@ -61,8 +61,8 @@ async function getMovieDetails(infoBtn) {
 	// access the movie id by getting the attribute we've set on the displayMovies function
 	let movieId = infoBtn.getAttribute('data-movieId')
 
-	// const movieDetailUrl = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
-	const movieDetailUrl = 'https://api.themoviedb.org/3/movie/' + movieId
+	const movieDetailUrl = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
+	// const movieDetailUrl = 'https://api.themoviedb.org/3/movie/' + movieId
 
 	let response = await fetch(movieDetailUrl, {
 		headers: {
@@ -84,6 +84,9 @@ function showMovieDetails(movie) {
 		currency: 'USD',
 	})
 
+	// format date
+	let dateFormatter = new Intl.DateTimeFormat('en')
+
 	// get the element where want to put the title, description, image
 	let movieTitle = document.querySelector('.movieTitle')
 	movieTitle.textContent = movie.title
@@ -95,18 +98,46 @@ function showMovieDetails(movie) {
 		`https://image.tmdb.org/t/p/w500${movie.poster_path}`
 	)
 	let movieTagline = document.querySelector('.tagline')
-	movieTagline.textContent = movie.tagline
+	if (movie.tagline) {
+		movieTagline.textContent = movie.tagline
+	} else {
+		movieTagline.textContent = movie.title
+	}
+
 	let movieBudget = document.querySelector('.budget')
-    if (movie.budget) {
+	if (movie.budget) {
 		movieBudget.textContent = USDollar.format(movie.budget)
 	} else {
-		movieBudget.textContent = 'Sorry! No budget info available for now.'
+		movieBudget.textContent = 'No budget info available for now.'
 	}
-    
+
 	let movieRevenue = document.querySelector('.revenue')
-    if (movie.revenue) {
-        movieRevenue.textContent = USDollar.format(movie.revenue)
-    } else {
-        movieRevenue.textContent = 'Sorry! No revenue info available for now.'
-    }
+	if (movie.revenue) {
+		movieRevenue.textContent = USDollar.format(movie.revenue)
+	} else {
+		movieRevenue.textContent = 'No revenue info available for now.'
+	}
+
+	// release-date
+	let releaseDate = document.querySelector('.release-date') 
+	releaseDate.textContent = convertDate(movie.release_date)
 }
+
+// convert the date format
+function convertDate(inputDate) {
+	const dateObject = new Date(inputDate)
+
+	// Define options for formatting
+	const options = {
+		weekday: 'long',
+		month: 'short',
+		day: 'numeric',
+		year: 'numeric',
+	}
+
+	// Use toLocaleDateString with the defined options
+	const formattedDate = dateObject.toLocaleDateString('en-US', options)
+
+	return formattedDate
+}
+
