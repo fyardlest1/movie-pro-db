@@ -74,3 +74,11 @@ footer .bi:hover {
 .app-logo {
     max-width: 450px;
 }
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+}

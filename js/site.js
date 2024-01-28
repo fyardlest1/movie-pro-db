@@ -144,7 +144,7 @@ function showMovieDetails(movie) {
 			newImage.setAttribute('alt', 'Company logo')
 			// add the new image to the screen
 			companiesLogo.appendChild(newImage)
-		}
+		} 
 	})
 }
 
