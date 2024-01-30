@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>DBMoviePro: A coding Challenge</title>
+		<title>DBMoviePro: Popular Movies</title>
 
 		<!-- Bootstrap CSS -->
 		<link
@@ -39,7 +39,7 @@
 			type="image/x-icon"
 		/>
 	</head>
-	<body data-fyard-theme="red" onload="displayPopularMovies()">
+	<body data-fyard-theme="red" onload="displayFavoriteMovies()">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark">
 				<div class="container">
@@ -113,13 +113,13 @@
 
 		<main class="container py-3">
 			<div class="btn-groop">
-				<button class="btn btn-primary" onclick="displayPopularMovies()"			
-				>Load Movies</button>
+				<a href="/app.html" class="btn btn-outline-primary"			
+				>Popular Movies</a>
 				<a href="/favorites.html" 
-					class="btn btn-outline-primary"
+					class="btn btn-primary"
 				>Favorite Movies</a>
 			</div>
-			<h1 class="mt-3 text-center display5">Popular Movies</h1>
+			<h1 class="mt-3 text-center display5">Favorite Movies</h1>
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 gy-3" id="movie-row">
 				<!-- All movies goes here -->
 			</div>
@@ -199,7 +199,7 @@
 					</div>
 					<div class="card-footer d-flex justify-content-between">
 						<button class="btn btn-outline-primary" 
-							onclick="addFavoriteMovies(this)">Add to Favorites</button>
+                            onclick="removeFavoriteMovies(this)">Unfavorite</button>
 						<button 
 							class="btn btn-primary"
 							data-bs-toggle="modal"
@@ -368,10 +368,9 @@
 							Close
 						</button>
 						<button type="button" 
-							class="btn btn-primary"
-							onclick="addFavoriteMovies(this)"
-						>
-							Save As Favorite
+                            class="btn btn-primary"
+                        >
+							Save ...
 						</button>
 					</div>
 				</div>
