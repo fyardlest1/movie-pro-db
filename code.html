@@ -86,10 +86,12 @@
 							</li>
 							<li class="nav-item">
 								<!-- CHANGE ME!!!!!!!! -->
-								<a class="nav-link" 
+								<a
+									class="nav-link"
 									href="https://github.com/fyardlest1/movie-pro-db"
 									target="_blank"
-								>The Repo</a>
+									>The Repo</a
+								>
 							</li>
 							<li class="nav-item">
 								<a
@@ -122,8 +124,7 @@
 								try {
 									const popularMoviesUrl = 'https://api.themoviedb.org/3/movie/popular';
 								
-									// the easy way first with fetch (asynchronous),
-									// by adding async in front of the function name
+									// the easiest way to fetch an API (asynchronous)
 									let response = await fetch(popularMoviesUrl, {
 										headers: {
 											Authorization: `Bearer ${API_KEY}`,
@@ -387,43 +388,77 @@
 				</div>
 				<!-- Code explanation -->
 				<div class="col-12 col-lg-4">
-					<p>The code is structured in one fonction</p>
+					<h5>API (Application Programming Interface)</h5>
+					<p>
+						Fetching APIs is a fundamental aspect of modern software
+						development that enables applications to communicate,
+						share data, and leverage external services, leading to
+						more feature-rich, efficient, and interconnected
+						software systems. APIs define the methods and data
+						formats that applications can use to request and
+						exchange information.
+					</p>
+					<p>
+						In this project we are goint to use TMDB to retrieve
+						data from their remote servers. In our case we need to
+						get the popular movies and more.
+					</p>
+					<h5>Let's get to it!</h5>
 					<h5>
 						<code>getPopularMovies()</code>
 					</h5>
 					<p>
-						The <code>getPopularMovies</code> function gets.... 
+						The <code>getPopularMovies</code> function is
+						responsible for communicating with the TMDB remote
+						server for fetching a list of popular movies. In the
+						server documentation we found the link that allows us to
+						retrieve the data.
+					</p>
+					<p>
+						The fetch function is used to make an asynchronous
+						request to the specified API endpoint
+						(<code>popularMoviesUrl</code>). The await keyword is used to wait
+						for the asynchronous operation to complete, and the
+						result is stored in the response variable. Next, we
+						include an <b>Authorization header</b> in the API request, and
+						the value of the Authorization header is set to a Bearer
+						token, which dynamically generated using an <code>API_KEY</code>
+						variable that i got from my TMDB account. After that, we
+						tcheck if the HTTP response status is <span class='text-success fw-bold'>OK</span> (in the range
+						<b>200-299</b>). If the response is successful, the code
+						proceeds to handle the data. Than we parse the response
+						body into a json format, and the array of popular movies
+						extracted from the API response. At the end we catch any
+						errors that might occur during the execution of the try
+						block. If an error occurs, the function returns an empty
+						array.
+					</p>
+					<p>
+						So our try, catch block handles potential errors, and
+						returns either the array of popular movies or an empty
+						array in case of an error. And we design the fonction to
+						be used in an asynchronous context.
 					</p>
 					<h5>
 						<code>displayMovies()</code>
 					</h5>
-					<p>
-						The <code>displayMovies</code> function gets....
-					</p>
+					<p>The <code>displayMovies</code> function gets....</p>
 					<h5>
 						<code>getMovieById()</code>
 					</h5>
-					<p>
-						The <code>getMovieById</code> function gets.... 
-					</p>
+					<p>The <code>getMovieById</code> function gets....</p>
 					<h5>
 						<code>getMovieDetails()</code>
 					</h5>
-					<p>
-						The <code>getMovieDetails</code> function gets....
-					</p>
+					<p>The <code>getMovieDetails</code> function gets....</p>
 					<h5>
 						<code>showMovieDetails()</code>
 					</h5>
-					<p>
-						The <code>showMovieDetails</code> function gets...
-					</p>
+					<p>The <code>showMovieDetails</code> function gets...</p>
 					<h5>
 						<code>convertDate()</code>
 					</h5>
-					<p>
-						The <code>convertDate</code> function gets...
-					</p>
+					<p>The <code>convertDate</code> function gets...</p>
 					<h5>
 						<code>displayPopularMovies()</code>
 					</h5>
@@ -439,9 +474,7 @@
 					<h5>
 						<code>addFavoriteMovies()</code>
 					</h5>
-					<p>
-						The <code>addFavoriteMovies</code> function gets...
-					</p>
+					<p>The <code>addFavoriteMovies</code> function gets...</p>
 					<h5>
 						<code>removeFavoriteMovies()</code>
 					</h5>
@@ -451,15 +484,11 @@
 					<h5>
 						<code>saveFavoriteMovies()</code>
 					</h5>
-					<p>
-						The <code>saveFavoriteMovies</code> function gets...
-					</p>
+					<p>The <code>saveFavoriteMovies</code> function gets...</p>
 					<h5>
 						<code>getFavoriteMovies()</code>
 					</h5>
-					<p>
-						The <code>getFavoriteMovies</code> function gets...
-					</p>
+					<p>The <code>getFavoriteMovies</code> function gets...</p>
 					<h5>
 						That's kind of cool, right?
 						<span class="fs-4">&#128526;</span>
@@ -536,7 +565,7 @@
 				'remove-indent': true,
 				'left-trim': true,
 				'right-trim': true,
-			})
+			});
 		</script>
 	</body>
 </html>

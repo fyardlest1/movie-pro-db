@@ -5,8 +5,8 @@ const API_KEY =
 async function getPopularMovies() {
 	try {
 		const popularMoviesUrl = 'https://api.themoviedb.org/3/movie/popular';
-	
-		// the easy way first with fetch (asynchronous),
+
+		// the easiest way to fetch an API (asynchronous),
 		// by adding async in front of the function name
 		let response = await fetch(popularMoviesUrl, {
 			headers: {
@@ -18,13 +18,12 @@ async function getPopularMovies() {
 			let data = await response.json();
 			return data.results;
 		}
-	
 	} catch (error) {
 		console.log(error)
 		return [];
 	}
 
-	//  the hard way first with fetch
+	//  the hard way to fetch an API
 	// fetch(popularMoviesUrl, {
 	//     headers: {
 	//         'Authorization': `Bearer ${API_KEY}`
@@ -275,3 +274,4 @@ function getFavoriteMovies() {
 
 	return favoriteMovies;
 }
+
