@@ -442,15 +442,51 @@
 					<h5>
 						<code>displayMovies()</code>
 					</h5>
-					<p>The <code>displayMovies</code> function gets....</p>
+					<p>
+						To display the movie on the page we have created a &lt;template> tag that contain a card to show each movie. 
+						This function is responsible to access the template tag element by it's id, access the row where we want to insert the result, 
+						and clear the row if the list od movie already exist. The display function take an array (a collection of movie object), 
+						all we have to do now is to iterate through the collection, create a copy of the template element, 
+						and modify the information container such as the title, the overvie, the movie poster and so one. 
+						We have also our card button, and create a new attribute for this button for future use by using <code>setAttribute</code>. 
+						Finally we add each movie card into our movie row using <code>appenChild</code>.
+					</p>
 					<h5>
 						<code>getMovieById()</code>
 					</h5>
-					<p>The <code>getMovieById</code> function gets....</p>
+					<p>
+						The <code>getMovieById</code> function allows to fetch data from the TMDB remote server 
+						to access each movie separately using their id. 
+					</p>
+					<p>
+						Fisrt, we use <code>async</code> to Indicates that the function is asynchronous. 
+						In the fonction wi need a parameter that represent the the unique identifier of the movie. 
+						We are using a <code>try</code> block that contains the code that may potentially throw an exception. 
+						Inside the try block we constructs the URL for the TMDb API endpoint to fetch details of a specific movie 
+						based on the provided <code>movieId</code>. Inside the response variable we use the fetch function to send a GET request 
+						to the constructed API endpoint that includes an Authorization header with an API key (<b>API_KEY</b>) for authentication. 
+						Note that the <code>await</code> pauses the execution of the function until the promise returned by fetch is resolved. 
+						Next we are tchecking if the response status is <span class='text-success fw-bold'>OK</span> (status code <b>200</b>). 
+						If true, it means the request was successful. We use await to pause again while parsing the <b>JSON</b> data from the response body. 
+						Finally, we use the <code>catch</code> block for cases where an error occurs within the try block. 
+						The error is logged to the console for debugging purposes, and the function returns undefined in case of an error.
+					</p>
 					<h5>
 						<code>getMovieDetails()</code>
 					</h5>
-					<p>The <code>getMovieDetails</code> function gets....</p>
+					<p>
+						The <code>getMovieDetails</code> is also behave <b>asynchronously</b>, and take a parameter representing 
+						the button element that triggered the function, expecting the button to have a <code>data-movieId</code> 
+						attribute containing the movie's unique identifier, this is why we have set the data-movieId attribute 
+						while displaying the data. Now all we have to do is to get this data that we have set, 
+						so we can retrieve the movieId and store it into a variable with the same name <code>movieId</code>.
+						Now we can call our <code>getMovieById</code> function and passing as argument the retrieved movieId. 
+						As you know we are using the await that pauses the execution of the function until the promise returned 
+						by getMovieById is resolved, and store the resolved value (the movie details) into a <code>movie</code> variable. 
+						If the movie variable is not equal to <code>undefined</code>, the condition ensures that the movie details were successfully retrieved, 
+						and calls the <code>showMovieDetails</code> function with the movie details as an argument. 
+						Note that if the movie details were not successfully retrieved (i.e., <b>movie is undefined</b>), no further action is taken.
+					</p>
 					<h5>
 						<code>showMovieDetails()</code>
 					</h5>
