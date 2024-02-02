@@ -494,7 +494,16 @@
 					<h5>
 						<code>convertDate()</code>
 					</h5>
-					<p>The <code>convertDate</code> function gets...</p>
+					<p>
+						The <code>convertDate</code> function takes a date string (inputDate) as a parameter, 
+						converts it to a JavaScript Date object, and then formats it using the toLocaleDateString 
+						method with specific options. Finally, it returns the formatted date as a string. This function helpl converting
+						date comming from the remote server we want to use in the movie details in a specific format.
+						Note that the following line of code: <code>const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };</code>
+						defines an options object with properties specifying the desired format for the date. As example, 
+						the input date '<b>2024-02-01</b>' is converted and formatted according to the specified options, 
+						resulting in the output '<b>Thu Feb 01 2024</b>'. 
+					</p>
 					<h5>
 						<code>displayPopularMovies()</code>
 					</h5>
