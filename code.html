@@ -322,7 +322,33 @@
 								displayMovies(movies);
 							}
 
-							// Favorite movies
+							// using local storage to save our favorites
+							function saveFavoriteMovies(movies) {
+								// serialization of the data
+								// turn and array of objects into string
+								let moviesAsString = JSON.stringify(movies);
+								// save a complete list of our favorite movies
+								localStorage.setItem('fyard-favorite-movies', moviesAsString);
+							}
+
+							// get our favorite movies from the local storage
+							function getFavoriteMovies() {
+								// retrive our list of favorite movies
+								// return the list of movies
+								let favoriteMovies = localStorage.getItem('fyard-favorite-movies');
+								// null if we don't have not saved any movies yet
+								if (favoriteMovies == null) {
+									favoriteMovies = [];
+									saveFavoriteMovies(favoriteMovies);
+								} else {
+									// deserialization of the data
+									favoriteMovies = JSON.parse(favoriteMovies);
+								}
+
+								return favoriteMovies;
+							}
+
+							// Adding Favorite movies
 							async function addFavoriteMovies(btn) {
 								// save one new movie to our list of favorites
 								let movieId = btn.getAttribute('data-movieId');
@@ -356,33 +382,7 @@
 								saveFavoriteMovies(favorites);
 								// display the new list of favorites
 								displayFavoriteMovies()
-							}
-
-							// using local storage to save our favorites
-							function saveFavoriteMovies(movies) {
-								// serialization of the data
-								// turn and array of objects into string
-								let moviesAsString = JSON.stringify(movies);
-								// save a complete list of our favorite movies
-								localStorage.setItem('fyard-favorite-movies', moviesAsString);
-							}
-
-							// get our favorite movies from the local storage
-							function getFavoriteMovies() {
-								// retrive our list of favorite movies
-								// return the list of movies
-								let favoriteMovies = localStorage.getItem('fyard-favorite-movies');
-								// null if we don't have not saved any movies yet
-								if (favoriteMovies == null) {
-									favoriteMovies = [];
-									saveFavoriteMovies(favoriteMovies);
-								} else {
-									// deserialization of the data
-									favoriteMovies = JSON.parse(favoriteMovies);
-								}
-
-								return favoriteMovies;
-							}
+							}							
                         </code>
                     </pre>
 				</div>
@@ -417,21 +417,23 @@
 					<p>
 						The fetch function is used to make an asynchronous
 						request to the specified API endpoint
-						(<code>popularMoviesUrl</code>). The await keyword is used to wait
-						for the asynchronous operation to complete, and the
-						result is stored in the response variable. Next, we
-						include an <b>Authorization header</b> in the API request, and
-						the value of the Authorization header is set to a Bearer
-						token, which dynamically generated using an <code>API_KEY</code>
-						variable that i got from my TMDB account. After that, we
-						tcheck if the HTTP response status is <span class='text-success fw-bold'>OK</span> (in the range
-						<b>200-299</b>). If the response is successful, the code
-						proceeds to handle the data. Than we parse the response
-						body into a json format, and the array of popular movies
-						extracted from the API response. At the end we catch any
-						errors that might occur during the execution of the try
-						block. If an error occurs, the function returns an empty
-						array.
+						(<code>popularMoviesUrl</code>). The await keyword is
+						used to wait for the asynchronous operation to complete,
+						and the result is stored in the response variable. Next,
+						we include an <b>Authorization header</b> in the API
+						request, and the value of the Authorization header is
+						set to a Bearer token, which dynamically generated using
+						an <code>API_KEY</code> variable that i got from my TMDB
+						account. After that, we tcheck if the HTTP response
+						status is
+						<span class="text-success fw-bold">OK</span> (in the
+						range <b>200-299</b>). If the response is successful,
+						the code proceeds to handle the data. Than we parse the
+						response body into a json format, and the array of
+						popular movies extracted from the API response. At the
+						end we catch any errors that might occur during the
+						execution of the try block. If an error occurs, the
+						function returns an empty array.
 					</p>
 					<p>
 						So our try, catch block handles potential errors, and
@@ -443,49 +445,82 @@
 						<code>displayMovies()</code>
 					</h5>
 					<p>
-						To display the movie on the page we have created a &lt;template> tag that contain a card to show each movie. 
-						This function is responsible to access the template tag element by it's id, access the row where we want to insert the result, 
-						and clear the row if the list od movie already exist. The display function take an array (a collection of movie object), 
-						all we have to do now is to iterate through the collection, create a copy of the template element, 
-						and modify the information container such as the title, the overvie, the movie poster and so one. 
-						We have also our card button, and create a new attribute for this button for future use by using <code>setAttribute</code>. 
-						Finally we add each movie card into our movie row using <code>appenChild</code>.
+						To display the movie on the page we have created a
+						&lt;template> tag that contain a card to show each
+						movie. This function is responsible to access the
+						template tag element by it's id, access the row where we
+						want to insert the result, and clear the row if the list
+						od movie already exist. The display function take an
+						array (a collection of movie object), all we have to do
+						now is to iterate through the collection, create a copy
+						of the template element, and modify the information
+						container such as the title, the overvie, the movie
+						poster and so one. We have also our card button, and
+						create a new attribute for this button for future use by
+						using <code>setAttribute</code>. Finally we add each
+						movie card into our movie row using
+						<code>appenChild</code>.
 					</p>
 					<h5>
 						<code>getMovieById()</code>
 					</h5>
 					<p>
-						The <code>getMovieById</code> function allows to fetch data from the TMDB remote server 
-						to access each movie separately using their id. 
+						The <code>getMovieById</code> function allows to fetch
+						data from the TMDB remote server to access each movie
+						separately using their id.
 					</p>
 					<p>
-						Fisrt, we use <code>async</code> to Indicates that the function is asynchronous. 
-						In the fonction wi need a parameter that represent the the unique identifier of the movie. 
-						We are using a <code>try</code> block that contains the code that may potentially throw an exception. 
-						Inside the try block we constructs the URL for the TMDb API endpoint to fetch details of a specific movie 
-						based on the provided <code>movieId</code>. Inside the response variable we use the fetch function to send a GET request 
-						to the constructed API endpoint that includes an Authorization header with an API key (<b>API_KEY</b>) for authentication. 
-						Note that the <code>await</code> pauses the execution of the function until the promise returned by fetch is resolved. 
-						Next we are tchecking if the response status is <span class='text-success fw-bold'>OK</span> (status code <b>200</b>). 
-						If true, it means the request was successful. We use await to pause again while parsing the <b>JSON</b> data from the response body. 
-						Finally, we use the <code>catch</code> block for cases where an error occurs within the try block. 
-						The error is logged to the console for debugging purposes, and the function returns undefined in case of an error.
+						Fisrt, we use <code>async</code> to Indicates that the
+						function is asynchronous. In the fonction wi need a
+						parameter that represent the the unique identifier of
+						the movie. We are using a <code>try</code> block that
+						contains the code that may potentially throw an
+						exception. Inside the try block we constructs the URL
+						for the TMDb API endpoint to fetch details of a specific
+						movie based on the provided <code>movieId</code>. Inside
+						the response variable we use the fetch function to send
+						a GET request to the constructed API endpoint that
+						includes an Authorization header with an API key
+						(<b>API_KEY</b>) for authentication. Note that the
+						<code>await</code> pauses the execution of the function
+						until the promise returned by fetch is resolved. Next we
+						are tchecking if the response status is
+						<span class="text-success fw-bold">OK</span> (status
+						code <b>200</b>). If true, it means the request was
+						successful. We use await to pause again while parsing
+						the <b>JSON</b> data from the response body. Finally, we
+						use the <code>catch</code> block for cases where an
+						error occurs within the try block. The error is logged
+						to the console for debugging purposes, and the function
+						returns undefined in case of an error.
 					</p>
 					<h5>
 						<code>getMovieDetails()</code>
 					</h5>
 					<p>
-						The <code>getMovieDetails</code> is also behave <b>asynchronously</b>, and take a parameter representing 
-						the button element that triggered the function, expecting the button to have a <code>data-movieId</code> 
-						attribute containing the movie's unique identifier, this is why we have set the data-movieId attribute 
-						while displaying the data. Now all we have to do is to get this data that we have set, 
-						so we can retrieve the movieId and store it into a variable with the same name <code>movieId</code>.
-						Now we can call our <code>getMovieById</code> function and passing as argument the retrieved movieId. 
-						As you know we are using the await that pauses the execution of the function until the promise returned 
-						by getMovieById is resolved, and store the resolved value (the movie details) into a <code>movie</code> variable. 
-						If the movie variable is not equal to <code>undefined</code>, the condition ensures that the movie details were successfully retrieved, 
-						and calls the <code>showMovieDetails</code> function with the movie details as an argument. 
-						Note that if the movie details were not successfully retrieved (i.e., <b>movie is undefined</b>), no further action is taken.
+						The <code>getMovieDetails</code> is also behave
+						<b>asynchronously</b>, and take a parameter representing
+						the button element that triggered the function,
+						expecting the button to have a
+						<code>data-movieId</code> attribute containing the
+						movie's unique identifier, this is why we have set the
+						data-movieId attribute while displaying the data. Now
+						all we have to do is to get this data that we have set,
+						so we can retrieve the movieId and store it into a
+						variable with the same name <code>movieId</code>. Now we
+						can call our <code>getMovieById</code> function and
+						passing as argument the retrieved movieId. As you know
+						we are using the await that pauses the execution of the
+						function until the promise returned by getMovieById is
+						resolved, and store the resolved value (the movie
+						details) into a <code>movie</code> variable. If the
+						movie variable is not equal to <code>undefined</code>,
+						the condition ensures that the movie details were
+						successfully retrieved, and calls the
+						<code>showMovieDetails</code> function with the movie
+						details as an argument. Note that if the movie details
+						were not successfully retrieved (i.e.,
+						<b>movie is undefined</b>), no further action is taken.
 					</p>
 					<h5>
 						<code>showMovieDetails()</code>
@@ -495,26 +530,120 @@
 						<code>convertDate()</code>
 					</h5>
 					<p>
-						The <code>convertDate</code> function takes a date string (inputDate) as a parameter, 
-						converts it to a JavaScript Date object, and then formats it using the toLocaleDateString 
-						method with specific options. Finally, it returns the formatted date as a string. This function helpl converting
-						date comming from the remote server we want to use in the movie details in a specific format.
-						Note that the following line of code: <code>const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };</code>
-						defines an options object with properties specifying the desired format for the date. As example, 
-						the input date '<b>2024-02-01</b>' is converted and formatted according to the specified options, 
-						resulting in the output '<b>Thu Feb 01 2024</b>'. 
+						The <code>convertDate</code> function takes a date
+						string (inputDate) as a parameter, converts it to a
+						JavaScript Date object, and then formats it using the
+						toLocaleDateString method with specific options.
+						Finally, it returns the formatted date as a string. This
+						function helpl converting date comming from the remote
+						server we want to use in the movie details in a specific
+						format. Note that the following line of code:
+						<code
+							>const options = { weekday: 'short', month: 'short',
+							day: 'numeric', year: 'numeric' };</code
+						>
+						defines an options object with properties specifying the
+						desired format for the date. As example, the input date
+						'<b>2024-02-01</b>' is converted and formatted according
+						to the specified options, resulting in the output '<b
+							>Thu Feb 01 2024</b
+						>'.
 					</p>
 					<h5>
 						<code>displayPopularMovies()</code>
 					</h5>
 					<p>
-						The <code>displayPopularMovies</code> function gets...
+						The <code>displayPopularMovies</code> function is
+						designed to display popular movies with the help of
+						<code>getPopularMovies</code> that fetching the list of
+						popular movies and store it in the movies variable.
+						Finally, the <code>displayMovies</code> function is then
+						called with the list of popular movies as an argument.
+						This function is responsible for rendering the movies.
 					</p>
 					<h5>
 						<code>displayFavoriteMovies()</code>
 					</h5>
 					<p>
-						The <code>displayFavoriteMovies</code> function gets...
+						The <code>displayFavoriteMovies</code> function is
+						designed to display the favorite movies with the help of
+						<code>getFavoriteMovies</code> that retrieve the list of
+						favorite movies and store it in the movies variable.
+						Finally, the <code>displayMovies</code> function is then
+						called with the list of favorite movies as an argument.
+						This function is responsible for rendering the movies.
+					</p>
+					<p>
+						As you can see, The
+						<code>displayFavoriteMovies</code> and
+						<code>displayPopularMovies</code> follow a similar
+						pattern. The key difference is the source of movies, the
+						<b>displayPopularMovies</b> likely retrieved from an
+						external source, and the
+						<b>displayFavoriteMovies</b> displays favorite movies
+						stored locally.
+					</p>
+					<h4>Talking about LocalStorage</h4>
+					<p>
+						Before going any further, let's talk a little about
+						localstorage. <br />
+						<b>What is LocalStorage?</b> <br />LocalStorage is a web
+						storage feature provided by web browsers to allow
+						websites to store data persistently on a user's device.
+						It provides a simple key-value storage mechanism and is
+						a part of the Web Storage API along with sessionStorage.
+						Note that both the key and the value are strings. If you
+						need to store non-string data types, you'll need to
+						convert them to strings before storing and parse them
+						back when retrieving. The key distinction between
+						<code>localStorage</code> and
+						<code>sessionStorage</code> is that data stored in
+						localStorage persists across browser sessions, while
+						data in sessionStorage is only available for the
+						duration of a single page session. The Data stored in
+						localStorage persists even after the user closes and
+						reopens the browser. It remains available until
+						explicitly cleared by the user or the website.
+					</p>
+					<h5>
+						<code>saveFavoriteMovies()</code>
+					</h5>
+					<p>
+						The <code>saveFavoriteMovies</code> function purpose is
+						to save a list of favorite movies to the browser's local
+						storage. Fisrt we need to serialize the data.
+						<em><b>Serialization is the process of converting a data
+							structure into a format that can be easily stored or
+							transmitted, in this case, converting the array of
+							objects into a JSON string.
+						</em></b>
+						The input parameter <b>movies</b>, that is an array of objects
+						representing favorite movies, is serialized into a
+						string using <code>JSON.stringify()</code>, and stored into the
+						moviesAsString variable. Now the serialized string
+						(<b>moviesAsString</b>) is then saved to the local
+						storage using <code>localStorage.setItem()</code>, and
+						the key used for storing this data is set to
+						'<code>fyard-favorite-movies</code>'.
+					</p>
+					<h5>
+						<code>getFavoriteMovies()</code>
+					</h5>
+					<p>
+						The <code>getFavoriteMovies</code> function purpose is to retrieving the favorite movies from the local storage. 
+						The following line: <code>let favoriteMovies = localStorage.getItem('fyard-favorite-movies');</code> 
+						attempts to retrieve the list of favorite movies from the local storage using the key 'fyard-favorite-movies'. 
+						The result (favoriteMovies) is a string representation of the stored data. We use the if statement to check 
+						if the retrieved data is 'null', indicating that no favorite movies have been saved yet. In this case, 
+						an empty array (<code>favoriteMovies = []</code>) is assigned to 'favoriteMovies', 
+						and the function <code>saveFavoriteMovies(favoriteMovies)</code> is called to save this empty array to local storage. 
+						This initializes the storage with an empty list of favorite movies. In case where the retrieved data is not 'null' 
+						(i.e., there are saved movies), the <b>else</b> block is executed, 
+						and the line <code>favoriteMovies = JSON.parse(favoriteMovies);</code> deserializes the string representation 
+						of the saved data (favoriteMovies) into a JavaScript array. Note that the <code>JSON.parse</code> function 
+						is used to convert the JSON string back into its original array form. <br/> Finally, 
+						the function returns the list of favorite movies (favoriteMovies), which has either been retrieved 
+						from local storage or initialized as an empty array if no movies were previously saved.
 					</p>
 					<h5>
 						<code>addFavoriteMovies()</code>
@@ -526,14 +655,6 @@
 					<p>
 						The <code>removeFavoriteMovies</code> function gets...
 					</p>
-					<h5>
-						<code>saveFavoriteMovies()</code>
-					</h5>
-					<p>The <code>saveFavoriteMovies</code> function gets...</p>
-					<h5>
-						<code>getFavoriteMovies()</code>
-					</h5>
-					<p>The <code>getFavoriteMovies</code> function gets...</p>
 					<h5>
 						That's kind of cool, right?
 						<span class="fs-4">&#128526;</span>

@@ -213,6 +213,32 @@ function displayFavoriteMovies() {
 	displayMovies(movies);
 }
 
+// using local storage to save our favorites
+function saveFavoriteMovies(movies) {
+	// serialization of the data
+	// turn and array of objects into string
+	let moviesAsString = JSON.stringify(movies);
+	// save a complete list of our favorite movies
+	localStorage.setItem('fyard-favorite-movies', moviesAsString);
+}
+
+// get our favorite movies from the local storage
+function getFavoriteMovies() {
+	// retrive our list of favorite movies
+	// return the list of movies
+	let favoriteMovies = localStorage.getItem('fyard-favorite-movies');
+	// null if we don't have not saved any movies yet
+	if (favoriteMovies == null) {
+		favoriteMovies = [];
+		saveFavoriteMovies(favoriteMovies);
+	} else {
+		// deserialization of the data
+		favoriteMovies = JSON.parse(favoriteMovies);
+	}
+
+	return favoriteMovies;
+}
+
 // Favorite movies
 async function addFavoriteMovies(btn) {
 	// save one new movie to our list of favorites
@@ -247,31 +273,5 @@ function removeFavoriteMovies(btn) {
 	saveFavoriteMovies(favorites);
 	// display the new list of favorites
 	displayFavoriteMovies()
-}
-
-// using local storage to save our favorites
-function saveFavoriteMovies(movies) {
-	// serialization of the data
-	// turn and array of objects into string
-	let moviesAsString = JSON.stringify(movies);
-	// save a complete list of our favorite movies
-	localStorage.setItem('fyard-favorite-movies', moviesAsString);
-}
-
-// get our favorite movies from the local storage
-function getFavoriteMovies() {
-	// retrive our list of favorite movies
-	// return the list of movies
-	let favoriteMovies = localStorage.getItem('fyard-favorite-movies');
-	// null if we don't have not saved any movies yet
-	if (favoriteMovies == null) {
-		favoriteMovies = [];
-		saveFavoriteMovies(favoriteMovies);
-	} else {
-		// deserialization of the data
-		favoriteMovies = JSON.parse(favoriteMovies);
-	}
-
-	return favoriteMovies;
 }
 
