@@ -648,12 +648,35 @@
 					<h5>
 						<code>addFavoriteMovies()</code>
 					</h5>
-					<p>The <code>addFavoriteMovies</code> function gets...</p>
+					<p>
+						The <code>addFavoriteMovies</code> function Will add a new movie to our localstorage list. 
+						Moreover, to do so, we need to pass a button (<code>btn</code>) as a parameter that representing 
+						a button that triggers the addition of a movie to the list of favorites. 
+						Then it retrieves the <code>movieId</code> from the button's data attribute that was set as: 
+						(<code>'data-movieId'</code>). Next we need to get our favorite movies from the local storage 
+						by calling our <code>getFavoriteMovies()</code> function to retrieve the current list of favorite movies. 
+						We search for the movie we want to add into the list with the help of the built-in Javascript method (<code>find</code>), 
+						and store the result in the <code>duplicateMovieId</code> variable. 
+						After that, we check if there is a movie in the favorites list with the same <code>id</code> 
+						as the one being added in the <code>duplicateMovieId</code> because we do not want 
+						to have duplicate movie into our localstorage list. If there is actually no movie matching this id, 
+						we proceed to add the movie. So, if the movie is not a duplicate, we call the <code>getMovieById(movieId)</code> 
+						to get the details of the movie with the specified <b>id</b>. 
+						If the movie details are successfully retrieved (<code>newFavorite != undefined</code>), 
+						we just push it to the <code>favorites</code> array and save the updated list using our 
+						<code>saveFavoriteMovies(favorites)</code> function passing the new list of favorite movies.
+					</p>
 					<h5>
 						<code>removeFavoriteMovies()</code>
 					</h5>
 					<p>
-						The <code>removeFavoriteMovies</code> function gets...
+						The <code>removeFavoriteMovies</code> function is responsible for removing a favorite movie from the list. 
+						It takes a button (<code>btn</code>) as a parameter, and this parameter represent the button that will get triggered
+						to remove a movie from the list of favorites. It retrieves the <b>movieId</b> from the button's data attribute, 
+						calls the <code>getFavoriteMovies()</code> function to retrieve the current list of favorite movies, 
+						and using the <code>filter</code> method to create a new array (<code>favorites</code>) excluding the movie with the specified id. 
+						After that, we call our <code>saveFavoriteMovies()</code> function to saves the updated list of favorite movies. 
+						Finally, we display the new updated list of favorite movies by calling the <code>displayFavoriteMovies()</code>.
 					</p>
 					<h5>
 						That's kind of cool, right?
