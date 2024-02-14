@@ -436,7 +436,7 @@
 						function returns an empty array.
 					</p>
 					<p>
-						So our try, catch block handles potential errors, and
+						So our <code>try, catch</code> block handles potential errors, and
 						returns either the array of popular movies or an empty
 						array in case of an error. And we design the fonction to
 						be used in an asynchronous context.
@@ -525,7 +525,20 @@
 					<h5>
 						<code>showMovieDetails()</code>
 					</h5>
-					<p>The <code>showMovieDetails</code> function gets...</p>
+					<p>
+						The <code>showMovieDetails</code> function dynamically updates various HTML elements on the web page to present detailed information about a movie, including its title, description, poster, tagline, budget, revenue, release date, genres, and production companies with their logos.
+					</p>
+					<p>
+						The first part just create an <code>Intl.NumberFormat</code> object named <code>USDollar</code> to format numbers as US dollars. Then we start by updating Movie Title, Description, and Poster doing the following steps:
+					</p>
+					<ul>
+						<li>Retrieve the HTML elements using <code>document.querySelector</code> for the movie's title, description, and poster.</li>
+						<li>Set the text content of the title and description elements with information from the provided <b>movie</b> object.</li>
+						<li>Set the src attribute of the poster image element with the URL constructed from the movie's poster path.</li>
+						<li>For the release date, we call the <code>convertDate</code> function defined bellow to convert the release date into a desired format.</li>
+						<li>Maps through the <b>genres</b> attribute of the movie object to extract genre names and joins them into a comma-separated string. Sets the text content of the genres element with this string.</li>
+						<li>Note that for each logo path, we create a new <code>img</code> element.</li>
+					</ul>
 					<h5>
 						<code>convertDate()</code>
 					</h5>
@@ -538,10 +551,10 @@
 						function helpl converting date comming from the remote
 						server we want to use in the movie details in a specific
 						format. Note that the following line of code:
-						<code
-							>const options = { weekday: 'short', month: 'short',
-							day: 'numeric', year: 'numeric' };</code
-						>
+						<code>
+							const options = { weekday: 'short', month: 'short',
+							day: 'numeric', year: 'numeric' };
+						</code>
 						defines an options object with properties specifying the
 						desired format for the date. As example, the input date
 						'<b>2024-02-01</b>' is converted and formatted according
@@ -583,11 +596,10 @@
 						<b>displayFavoriteMovies</b> displays favorite movies
 						stored locally.
 					</p>
-					<h4>Talking about LocalStorage</h4>
+					<h5>Talking about LocalStorage</h5>
 					<p>
 						Before going any further, let's talk a little about
-						localstorage. <br />
-						<b>What is LocalStorage?</b> <br />LocalStorage is a web
+						localstorage. <b>What is LocalStorage?</b> <br />LocalStorage is a web
 						storage feature provided by web browsers to allow
 						websites to store data persistently on a user's device.
 						It provides a simple key-value storage mechanism and is
